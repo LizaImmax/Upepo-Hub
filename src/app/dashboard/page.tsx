@@ -161,18 +161,28 @@ export default function DashboardPage() {
               >
                 🪩 Upepo Hub Home
               </Link>
-              <Link
-                href="/components/learn"
+              <a
+                href="https://upepo-learn.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block p-3 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
               >
                 🎓 Upepo Learn
-              </Link>
+              </a>
               <Link
                 href="/components/cloud"
                 className="block p-3 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
               >
                 ☁️ Upepo Cloud
               </Link>
+              <a
+                href="https://upepo-network.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-3 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              >
+                🤝 Upepo Network
+              </a>
               <Link
                 href="/components/ventures"
                 className="block p-3 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
