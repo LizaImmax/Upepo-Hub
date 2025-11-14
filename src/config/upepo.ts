@@ -24,7 +24,7 @@ export const upepoComponents: UpepoComponent[] = [
     name: 'Upepo Learn',
     emoji: '🎓',
     description: 'Educational resources and learning platform',
-    url: '/components/learn',
+    url: 'https://upepo-learn.vercel.app/',
     color: 'from-green-400 to-emerald-400',
     category: 'education',
   },
