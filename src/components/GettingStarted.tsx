@@ -25,7 +25,7 @@ export default function GettingStarted() {
       title: 'Start Learning',
       description: 'Access courses on Upepo Learn',
       icon: '🎓',
-      link: '/components/learn',
+      link: 'https://upepo-learn.vercel.app/',
       color: 'bg-orange-500 hover:bg-orange-600',
     },
   ]
