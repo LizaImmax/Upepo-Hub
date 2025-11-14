@@ -38,7 +38,7 @@ export default function GettingStarted() {
             Getting Started
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Ready to dive in? Here's how to make the most of Upepo Hub
+            Ready to dive in? Here&apos;s how to make the most of Upepo Hub
           </p>
         </div>
 

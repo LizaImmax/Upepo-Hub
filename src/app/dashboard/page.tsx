@@ -15,7 +15,7 @@ export default function DashboardPage() {
             Community Dashboard
           </h1>
           <p className="text-gray-600 dark:text-gray-400">
-            Welcome back! Here's what's happening in the Upepo community.
+            Welcome back! Here&apos;s what&apos;s happening in the Upepo community.
           </p>
         </div>
 

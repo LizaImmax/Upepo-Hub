@@ -64,7 +64,7 @@ export default function Testimonials() {
           <div className="text-center mb-8">
             <div className="text-6xl mb-6">{testimonials[currentIndex].avatar}</div>
             <blockquote className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 italic mb-6">
-              "{testimonials[currentIndex].quote}"
+              &quot;{testimonials[currentIndex].quote}&quot;
             </blockquote>
             <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
               <p className="text-lg font-bold text-gray-900 dark:text-white">

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Mic, MicOff, Volume2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { upepoComponents } from '@/config/upepo'
@@ -11,6 +11,51 @@ export default function VoiceSearch() {
   const [isSupported, setIsSupported] = useState(false)
   const [recognition, setRecognition] = useState<any>(null)
   const router = useRouter()
+
+  const speak = useCallback((text: string) => {
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(text)
+      utterance.rate = 1
+      utterance.pitch = 1
+      utterance.volume = 1
+      window.speechSynthesis.speak(utterance)
+    }
+  }, [])
+
+  const processVoiceCommand = useCallback((command: string) => {
+    const lowerCommand = command.toLowerCase()
+    
+    // Navigate to pages
+    if (lowerCommand.includes('dashboard') || lowerCommand.includes('dash board')) {
+      speak('Opening dashboard')
+      router.push('/dashboard')
+    } else if (lowerCommand.includes('event')) {
+      speak('Opening events')
+      router.push('/events')
+    } else if (lowerCommand.includes('announcement')) {
+      speak('Opening announcements')
+      router.push('/announcements')
+    } else if (lowerCommand.includes('home')) {
+      speak('Going to homepage')
+      router.push('/')
+    }
+    // Search for services
+    else {
+      const matchedService = upepoComponents.find(comp => 
+        lowerCommand.includes(comp.name.toLowerCase()) ||
+        lowerCommand.includes(comp.category)
+      )
+      
+      if (matchedService) {
+        speak(`Opening ${matchedService.name}`)
+        router.push(matchedService.url)
+      } else {
+        speak('Sorry, I did not understand that command. Try saying dashboard, events, or a service name.')
+      }
+    }
+    
+    setTranscript('')
+  }, [router, speak])
 
   useEffect(() => {
     // Check if browser supports Web Speech API
@@ -47,52 +92,7 @@ export default function VoiceSearch() {
         setRecognition(recognitionInstance)
       }
     }
-  }, [])
-
-  const processVoiceCommand = (command: string) => {
-    const lowerCommand = command.toLowerCase()
-    
-    // Navigate to pages
-    if (lowerCommand.includes('dashboard') || lowerCommand.includes('dash board')) {
-      speak('Opening dashboard')
-      router.push('/dashboard')
-    } else if (lowerCommand.includes('event')) {
-      speak('Opening events')
-      router.push('/events')
-    } else if (lowerCommand.includes('announcement')) {
-      speak('Opening announcements')
-      router.push('/announcements')
-    } else if (lowerCommand.includes('home')) {
-      speak('Going to homepage')
-      router.push('/')
-    }
-    // Search for services
-    else {
-      const matchedService = upepoComponents.find(comp => 
-        lowerCommand.includes(comp.name.toLowerCase()) ||
-        lowerCommand.includes(comp.category)
-      )
-      
-      if (matchedService) {
-        speak(`Opening ${matchedService.name}`)
-        router.push(matchedService.url)
-      } else {
-        speak('Sorry, I did not understand that command. Try saying dashboard, events, or a service name.')
-      }
-    }
-    
-    setTranscript('')
-  }
-
-  const speak = (text: string) => {
-    if ('speechSynthesis' in window) {
-      const utterance = new SpeechSynthesisUtterance(text)
-      utterance.rate = 1
-      utterance.pitch = 1
-      utterance.volume = 1
-      window.speechSynthesis.speak(utterance)
-    }
-  }
+  }, [processVoiceCommand])
 
   const toggleListening = () => {
     if (!recognition) return
@@ -147,10 +147,10 @@ export default function VoiceSearch() {
         <div className="absolute top-full mt-2 right-0 bg-indigo-600 text-white rounded-lg shadow-xl p-4 min-w-[280px] animate-fadeIn">
           <p className="text-sm font-semibold mb-2">Voice Commands:</p>
           <ul className="text-xs space-y-1 text-white/90">
-            <li>• "Open dashboard"</li>
-            <li>• "Show events"</li>
-            <li>• "Find Upepo Learn"</li>
-            <li>• "Go to announcements"</li>
+            <li>• &quot;Open dashboard&quot;</li>
+            <li>• &quot;Show events&quot;</li>
+            <li>• &quot;Find Upepo Learn&quot;</li>
+            <li>• &quot;Go to announcements&quot;</li>
             <li>• Say any service name</li>
           </ul>
         </div>

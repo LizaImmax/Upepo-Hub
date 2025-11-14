@@ -28,7 +28,7 @@ export default function PopularThisWeek() {
             </h2>
           </div>
           <p className="text-xl text-gray-600 dark:text-gray-300">
-            See what's trending in the Upepo community
+            See what&apos;s trending in the Upepo community
           </p>
         </div>
 

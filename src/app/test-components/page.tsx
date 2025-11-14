@@ -84,13 +84,13 @@ export default function ComponentTestPage() {
     {
       id: 'voice',
       name: 'Voice Search',
-      description: 'Click the microphone icon and say commands like "dashboard", "events", or "announcements". Browser must support Web Speech API.',
+      description: 'Click the microphone icon and say commands like &quot;dashboard&quot;, &quot;events&quot;, or &quot;announcements&quot;. Browser must support Web Speech API.',
       status: testResults.voice,
       component: (
         <div className="flex flex-col gap-4">
           <VoiceSearch />
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            💡 Tip: If the mic icon doesn't appear, your browser may not support the Web Speech API. Try Chrome or Edge.
+            💡 Tip: If the mic icon doesn&apos;t appear, your browser may not support the Web Speech API. Try Chrome or Edge.
           </p>
           <div className="flex gap-2">
             <button
@@ -179,7 +179,7 @@ export default function ComponentTestPage() {
             Component Testing Dashboard
           </h1>
           <p className="text-gray-600 dark:text-gray-400">
-            Test all Phase 3 features to ensure they're working correctly
+            Test all Phase 3 features to ensure they&apos;re working correctly
           </p>
         </div>
 
@@ -246,9 +246,9 @@ export default function ComponentTestPage() {
           </h3>
           <ul className="space-y-2 text-indigo-800 dark:text-indigo-200 text-sm">
             <li>• Test each component by interacting with it</li>
-            <li>• Mark as "Works" if the component functions correctly</li>
-            <li>• Mark as "Broken" if you encounter any errors</li>
-            <li>• Mark as "Not Supported" if your browser doesn't support the feature</li>
+            <li>• Mark as &quot;Works&quot; if the component functions correctly</li>
+            <li>• Mark as &quot;Broken&quot; if you encounter any errors</li>
+            <li>• Mark as &quot;Not Supported&quot; if your browser doesn&apos;t support the feature</li>
             <li>• All tests should pass for full Phase 3 completion</li>
           </ul>
         </div>
