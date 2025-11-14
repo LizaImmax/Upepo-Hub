@@ -85,7 +85,7 @@ export default function SearchBar() {
         title: 'Community Dashboard',
         description: 'View community stats and activity',
         url: '/dashboard',
-        type: 'page',
+        type: 'page' as const,
         emoji: '📊',
       },
       {
@@ -93,7 +93,7 @@ export default function SearchBar() {
         title: 'Events',
         description: 'Browse all upcoming events',
         url: '/events',
-        type: 'page',
+        type: 'page' as const,
         emoji: '📅',
       },
       {
@@ -101,7 +101,7 @@ export default function SearchBar() {
         title: 'Announcements',
         description: 'Latest news and updates',
         url: '/announcements',
-        type: 'page',
+        type: 'page' as const,
         emoji: '📢',
       },
     ].filter(
