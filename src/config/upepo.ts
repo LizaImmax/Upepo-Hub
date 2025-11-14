@@ -60,7 +60,7 @@ export const upepoComponents: UpepoComponent[] = [
     name: 'Upepo Network',
     emoji: '🤝',
     description: 'Global community and connections',
-    url: '/components/network',
+    url: 'https://upepo-network.vercel.app/',
     color: 'from-teal-400 to-cyan-400',
     category: 'community',
   },
